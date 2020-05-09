@@ -2,9 +2,12 @@ package com.example.another_falppybird;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
+
+import androidx.core.content.res.ResourcesCompat;
 
 import java.util.Random;
 
@@ -14,10 +17,12 @@ class AppConstants {
     static int SCREEN_WIDTH, SCREEN_HEIGHT;
     static int gravity;
     static int VELOCITY_WHEN_JUMP;
+    static Typeface font;
 
     public static void initialization(Context context)
     {
         setScreenSize(context);
+        AppConstants.font = ResourcesCompat.getFont(context, R.font.press_start_2p);
         bitmapBank = new BitmapBank(context.getResources());
         gameEngine = new GameEngine();
         AppConstants.gravity = 3;

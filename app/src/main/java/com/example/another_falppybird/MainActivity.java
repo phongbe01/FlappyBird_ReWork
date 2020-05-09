@@ -20,15 +20,6 @@ public class MainActivity extends AppCompatActivity  {
         AppConstants.initialization(this.getApplicationContext());
 
         imageView = (ImageView) findViewById(R.id.iv_background);
-//        imageView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, GameActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
-
     }
 
     public void startGame(View view) {

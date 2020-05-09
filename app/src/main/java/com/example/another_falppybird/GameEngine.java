@@ -74,10 +74,10 @@ public class GameEngine {
 
     public void drawScore(Canvas canvas)
     {
-       if (gameState == 1)
-       {
-           canvas.drawText(score + "", AppConstants.SCREEN_WIDTH/2, 200, scorePaint.getPaint());
-       }
+        if (gameState == 1)
+        {
+            canvas.drawText(score + "", AppConstants.SCREEN_WIDTH/2, 200, scorePaint.getPaint());
+        }
     }
 
     public boolean isCollision()

@@ -10,7 +10,6 @@ import android.widget.Toast;
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     GameThread gameThread;
-    long timeEnd;
     boolean gameOver;
     public GameView(Context context) {
         super(context);
@@ -22,7 +21,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     public void surfaceCreated(SurfaceHolder holder) {
         if (!gameThread.isRunning())
         {
-            gameThread = new GameThread(holder);
+            gameThread = new GameThread(holder, getContext());
             gameThread.start();
         } else {
             gameThread.start();
@@ -56,7 +55,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         SurfaceHolder holder = getHolder();
         holder.addCallback(this);
         setFocusable(true);
-        gameThread = new GameThread(holder);
+        gameThread = new GameThread(holder, getContext());
         gameOver = false;
 
     }
@@ -68,27 +67,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         {
             AppConstants.getGameEngine().gameState = 1;
             AppConstants.getGameEngine().bird.setVelocity(AppConstants.VELOCITY_WHEN_JUMP);
-             if (gameThread.isCol())
-            {
-                gameOver = true;
-                AppConstants.getGameEngine().gameState = 2;
-                update();
-
-            } else {
-                Toast.makeText(getContext(), String.valueOf(AppConstants.getGameEngine().getScore()), Toast.LENGTH_SHORT).show();
-            }
-
         }
         return true;
     }
-
-    public void update()
-    {
-        if (gameThread.isCol())
-        {
-            AppConstants.reset(getContext(), AppConstants.getGameEngine().getScore());
-        }
-    }
-
-
 }

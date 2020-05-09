@@ -1,22 +1,24 @@
 package com.example.another_falppybird;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+
+import androidx.core.content.res.ResourcesCompat;
 
 public class Score extends Paint {
     private Paint paint;
     static int FONT_SIZE = 120;
     public Score() {
         this.paint = new Paint();
-        paint.setTextSize(FONT_SIZE);
-        paint.setColor(Color.WHITE);
-        Typeface typeface = paint.getTypeface();
-        Typeface bold = Typeface.create(typeface, Typeface.BOLD);
-        paint.setTypeface(bold);
+        this.paint.setTextSize(FONT_SIZE);
+        this.paint.setColor(Color.WHITE);
+        this.paint.setTypeface(AppConstants.font);
     }
 
     public Paint getPaint() {
-        return paint;
+        return this.paint;
     }
 }

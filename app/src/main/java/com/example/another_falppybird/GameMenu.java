@@ -22,9 +22,9 @@ public class GameMenu extends AppCompatActivity {
         setContentView(R.layout.activity_game_menu);
         Intent intent = getIntent();
         String score = intent.getStringExtra("SCORE");
-        String s = "222";
+
         if (score != null) {
-            //etScore.setText(s);
+           // etScore.setText(score);
             Toast.makeText(this, score, Toast.LENGTH_SHORT).show();
         }
     }

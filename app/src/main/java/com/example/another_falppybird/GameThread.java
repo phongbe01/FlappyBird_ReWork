@@ -13,11 +13,13 @@ class GameThread extends Thread {
     boolean isRunning, is_col;
     long startTime, loopTime;
     long DELAY = 30;
-    public GameThread(SurfaceHolder surfaceHolder)
+    Context context;
+    public GameThread(SurfaceHolder surfaceHolder, Context context)
     {
         this.surfaceHolder = surfaceHolder;
         isRunning = true;
         is_col = false;
+        this.context = context;
     }
 
     @Override
@@ -38,6 +40,8 @@ class GameThread extends Thread {
                     if (AppConstants.getGameEngine().isCollision())
                     {
                         is_col = true;
+                        AppConstants.getGameEngine().gameState = 2;
+                        AppConstants.reset(context, AppConstants.getGameEngine().getScore());
                     }
                     surfaceHolder.unlockCanvasAndPost(canvas);
                 }

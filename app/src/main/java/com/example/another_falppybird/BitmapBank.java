@@ -10,11 +10,19 @@ public class BitmapBank {
     private Bitmap topTube, bottomTube;
     public BitmapBank(Resources res) {
         this.background = BitmapFactory.decodeResource(res, R.drawable.bk1);
+        //this.background = scaleImage(this.background);
         bird = new Bitmap[2];
         bird[0] = BitmapFactory.decodeResource(res, R.drawable.bee_up_40);
         bird[1] = BitmapFactory.decodeResource(res, R.drawable.bee_down_40);
         this.topTube = BitmapFactory.decodeResource(res, R.drawable.top_tube);
         this.bottomTube = BitmapFactory.decodeResource(res, R.drawable.bottom_tube);
+    }
+
+    public Bitmap scaleImage(Bitmap bitmap)
+    {
+        float widthHeightRatio = getBackgroundWidth() / getBackgroundHeight();
+        int bgScaleWidth = (int) widthHeightRatio * AppConstants.SCREEN_HEIGHT;
+        return Bitmap.createScaledBitmap(bitmap, bgScaleWidth, AppConstants.SCREEN_HEIGHT, false);
     }
 
     public Bitmap getBird(int frame) {
