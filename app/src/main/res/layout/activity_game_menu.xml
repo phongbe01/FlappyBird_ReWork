@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bk1"
+    tools:context=".GameMenu">
+
+        <ImageView
+            android:id="@+id/imgMenu1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="112dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/menu1" />
+
+    <ImageView
+        android:id="@+id/imgMenu2"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/menu2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgMenu1" />
+
+    <TextView
+        android:id="@+id/etHighScore"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:ems="14"
+        android:fontFamily="@font/press_start_2p"
+        android:inputType="none"
+        android:gravity="center"
+        android:textColor="#ffff"
+        android:text="03"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etScore" />
+
+    <ImageView
+        android:id="@+id/imgMenu3"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="24dp"
+        android:onClick="rePlay"
+        android:src="@drawable/menu3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgMenu2" />
+
+    <ImageView
+        android:id="@+id/imgMenu4"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/menu4"
+        app:layout_constraintStart_toEndOf="@+id/imgMenu3"
+        app:layout_constraintTop_toBottomOf="@+id/imgMenu2" />
+
+    <TextView
+        android:id="@+id/etScore"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:ems="10"
+        android:fontFamily="@font/press_start_2p"
+        android:gravity="center"
+        android:textColor="#ffff"
+        android:text="01"
+        android:inputType="text"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgMenu1" />
+</androidx.constraintlayout.widget.ConstraintLayout>
