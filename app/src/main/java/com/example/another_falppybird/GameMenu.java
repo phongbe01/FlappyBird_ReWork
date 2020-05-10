@@ -57,14 +57,7 @@ public class GameMenu extends AppCompatActivity {
 
     public void addScore()
     {
-
         long insert = dbHelper.Insert(Integer.parseInt(score));
-        if (insert == -1)
-        {
-            Log.i("error", score);
-        } else {
-            Log.i("success", score);
-        }
     }
 
     public void getHighScore()
@@ -72,8 +65,6 @@ public class GameMenu extends AppCompatActivity {
         Cursor cursor = dbHelper.getHighScore();
         if (cursor.moveToFirst())
         {
-            int count = cursor.getCount();
-            Log.i("setDefault: count", cursor.getString(0));
             etHighScore.setText(cursor.getString(0));
         }
     }

@@ -9,10 +9,9 @@ public class GameEngine {
     Bird bird;
     Score scorePaint;
     ArrayList<Tube> tubes;
-    Tube tube, tubeOne;
+    Tube tube;
     int numberOfTubes;
     static int gameState;
-    long timeEnd;
     private int score;
 
     public GameEngine()
@@ -21,7 +20,6 @@ public class GameEngine {
         bird = new Bird();
         tube = new Tube();
         scorePaint = new Score();
-        //setTubes();
         gameState = 0;
         numberOfTubes = 2;
         score = 0;
@@ -29,8 +27,7 @@ public class GameEngine {
 
     public void updateAndDrawBackgroundImage(Canvas canvas)
     {
-        canvas.drawBitmap(AppConstants.getBitmapBank().getBackground(), backgroundImage.getX(), backgroundImage.getX(), null);
-
+        canvas.drawBitmap(AppConstants.getBitmapBank().getBackground(), backgroundImage.getX(), backgroundImage.getY(), null);
     }
 
     public void drawBird(Canvas canvas)
@@ -69,7 +66,6 @@ public class GameEngine {
             tube.setTubeVelocity(0);
             tube.setTubeX(AppConstants.SCREEN_WIDTH);
         }
-
     }
 
     public void drawScore(Canvas canvas)
@@ -147,13 +143,11 @@ public class GameEngine {
         if (right_b == right_a + 1)
         {
             score++;
+            AppConstants.sound.getSoundPoint();
         }
-
     }
 
     public int getScore() {
         return score;
     }
-
-
 }

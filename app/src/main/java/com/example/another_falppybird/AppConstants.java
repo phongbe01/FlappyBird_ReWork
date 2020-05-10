@@ -9,7 +9,6 @@ import android.view.WindowManager;
 
 import androidx.core.content.res.ResourcesCompat;
 
-import java.util.Random;
 
 class AppConstants {
     static BitmapBank bitmapBank; //Bitmap object reference
@@ -18,6 +17,7 @@ class AppConstants {
     static int gravity;
     static int VELOCITY_WHEN_JUMP;
     static Typeface font;
+    static Sound sound;
 
     public static void initialization(Context context)
     {
@@ -27,7 +27,7 @@ class AppConstants {
         gameEngine = new GameEngine();
         AppConstants.gravity = 3;
         AppConstants.VELOCITY_WHEN_JUMP =-30;
-
+        sound = new Sound(context);
     }
 
     public static  BitmapBank getBitmapBank()

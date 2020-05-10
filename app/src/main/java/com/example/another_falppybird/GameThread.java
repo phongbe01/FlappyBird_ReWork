@@ -41,6 +41,7 @@ class GameThread extends Thread {
                     {
                         is_col = true;
                         AppConstants.getGameEngine().gameState = 2;
+                        AppConstants.sound.getSoundHit();
                         int score =  AppConstants.getGameEngine().getScore();
                         AppConstants.reset(context, score);
                     }

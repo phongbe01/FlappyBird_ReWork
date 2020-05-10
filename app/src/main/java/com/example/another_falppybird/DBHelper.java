@@ -69,10 +69,4 @@ public class DBHelper extends SQLiteOpenHelper {
         return myDB.insert(TABLE_NAME,null,values);
     }
 
-    public Cursor getAll()
-    {
-        String query = "SELECT * FROM " + TABLE_NAME;
-        return myDB.rawQuery(query, null);
-    }
-
 }
