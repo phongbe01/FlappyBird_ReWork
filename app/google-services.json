@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "916477819321",
+    "firebase_url": "https://flappybird-4f553.firebaseio.com",
+    "project_id": "flappybird-4f553",
+    "storage_bucket": "flappybird-4f553.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916477819321:android:436e8fb308ab011c519e68",
+        "android_client_info": {
+          "package_name": "com.example.another_falppybird"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916477819321-m95qd5ulp8du3n5b3s2v2crpsur6sqhp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.another_falppybird",
+            "certificate_hash": "293d1cf5f4c11876c51851540862e30370b33ae0"
+          }
+        },
+        {
+          "client_id": "916477819321-gvdlvfjlittp1go4hgu1cskvpdfnq6o1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWIopV_ORYftiQnSs92H11Ni3lGMYV7L0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916477819321-gvdlvfjlittp1go4hgu1cskvpdfnq6o1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

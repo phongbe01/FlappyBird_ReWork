@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,20 +15,37 @@ import android.widget.Toast;
 
 public class GameMenu extends AppCompatActivity {
 
-    TextView etScore;
+    TextView etScore, etHighScore;
+    String score;
+    DBHelper dbHelper;
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        dbHelper.closeDB();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        etScore = (TextView) findViewById(R.id.etScore);
         setContentView(R.layout.activity_game_menu);
-        Intent intent = getIntent();
-        String score = intent.getStringExtra("SCORE");
 
+        etScore = (TextView) findViewById(R.id.etScore);
+        etHighScore = (TextView) findViewById(R.id.etHighScore);
+        dbHelper = new DBHelper(this);
+        dbHelper.openDB();
+        Intent intent = getIntent();
+        score = intent.getStringExtra("SCORE");
         if (score != null) {
-           // etScore.setText(score);
-            Toast.makeText(this, score, Toast.LENGTH_SHORT).show();
+            etScore.setText(score);
+            etHighScore.setText(score);
         }
+        addScore();
+        getHighScore();
     }
 
     public void rePlay(View view) {
@@ -34,5 +53,28 @@ public class GameMenu extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    public void addScore()
+    {
+
+        long insert = dbHelper.Insert(Integer.parseInt(score));
+        if (insert == -1)
+        {
+            Log.i("error", score);
+        } else {
+            Log.i("success", score);
+        }
+    }
+
+    public void getHighScore()
+    {
+        Cursor cursor = dbHelper.getHighScore();
+        if (cursor.moveToFirst())
+        {
+            int count = cursor.getCount();
+            Log.i("setDefault: count", cursor.getString(0));
+            etHighScore.setText(cursor.getString(0));
+        }
     }
 }

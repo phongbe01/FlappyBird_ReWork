@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Another_FalppyBird</string>
-    <string name="score">1</string>
+    <string name="high_score">HIGH SCORE</string>
 </resources>

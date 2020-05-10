@@ -41,7 +41,8 @@ class GameThread extends Thread {
                     {
                         is_col = true;
                         AppConstants.getGameEngine().gameState = 2;
-                        AppConstants.reset(context, AppConstants.getGameEngine().getScore());
+                        int score =  AppConstants.getGameEngine().getScore();
+                        AppConstants.reset(context, score);
                     }
                     surfaceHolder.unlockCanvasAndPost(canvas);
                 }
